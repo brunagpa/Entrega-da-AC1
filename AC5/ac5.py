@@ -1,37 +1,36 @@
 import random
 
 def main():
-    vida_av = 100
-    defesa_av = random.randint(1, 5)
-    ataque_av = random.randint(10, 20)
+    aventureiro_vida = 100
+    aventureiro_defesa = random.randint(1, 5)
+    aventureiro_ataque = random.randint(10, 20)
+    monstro_vida = random.randint(60,80)
+    monstro_ataque = random.randint(20, 30)
 
-    vida_mons = random.randint(60,80)
-    ataque_mons = random.randint(20, 30)
-
-    print(f"Aventureiro: Vida = {vida_av} - Att = {ataque_av} - Def = {defesa_av}")
-    print(f"Monstro: Vida = {vida_mons} - Att = {ataque_mons}")
+    print(f"Aventureiro: Vida = {aventureiro_vida} - Ataque = {aventureiro_ataque} - Defesa = {aventureiro_defesa}")
+    print(f"Monstro: Vida = {monstro_vida} - Ataque = {monstro_ataque}")
 
     rodada = 1
 
-    while vida_av > 0 and vida_mons > 0:
+    while aventureiro_vida > 0 and monstro_vida > 0:
         print(f"RODADA {rodada}:")
 
-        dano = random.randint(1, ataque_av)
-        vida_mons -= dano
+        dano = random.randint(1, aventureiro_ataque)
+        monstro_vida -= dano
 
-        dano = random.randint(1, ataque_mons) - defesa_av
+        dano = random.randint(1, monstro_ataque) - aventureiro_defesa
         if dano > 0:
-           vida_av -= dano
+           aventureiro_vida -= dano
 
-        print(f" Aventureiro: Vida = {vida_av}, Att = {ataque_av}, Def = {defesa_av}")
-        print(f" Monstro: Vida = {vida_mons}, Att = {ataque_mons}")
+        print(f" Aventureiro: Vida = {aventureiro_vida}, Ataque = {aventureiro_ataque}, Defesa = {aventureiro_defesa}")
+        print(f" Monstro: Vida = {monstro_vida}, Ataque = {monstro_ataque}")
 
-        if vida_mons <= 0:
+        if monstro_vida <= 0:
             print(f"O Monstro morreu!")
-        if vida_av <= 0:
+        if aventureiro_vida <= 0:
             print(f"Você morreu!")
 
         rodada += 1
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     main()
